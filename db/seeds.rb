@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+20.times do |i|
+  f = Feed.new
+  f.content = Faker::Lorem.sentence
+  f.user_id = 1
+  f.save
+end
