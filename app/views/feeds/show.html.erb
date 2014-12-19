@@ -1,0 +1,8 @@
+<h1>Feed</h1>
+
+<div><%= @feed.content %></div>
+<div><%= @feed.user.email %></div>
+<% @feed.comments.each do |i| %>
+  <hr>
+  <div><%= i.comment %></div>
+<% end %>

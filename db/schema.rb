@@ -11,16 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141219210521) do
+ActiveRecord::Schema.define(version: 20141219214832) do
 
   create_table "comments", force: true do |t|
     t.text     "comment"
-    t.integer  "Feed_id"
+    t.integer  "feed_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["Feed_id"], name: "index_comments_on_Feed_id", using: :btree
+  add_index "comments", ["feed_id"], name: "index_comments_on_feed_id", using: :btree
 
   create_table "feeds", force: true do |t|
     t.string   "content"

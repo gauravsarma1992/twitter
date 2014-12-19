@@ -11,3 +11,12 @@
   f.user_id = 1
   f.save
 end
+
+20.times do |i|
+  5.times do  
+    f = Comment.new
+    f.comment = Faker::Lorem.sentence
+    f.feed_id = i
+    f.save
+  end
+end

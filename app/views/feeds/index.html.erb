@@ -1,0 +1,8 @@
+<h1>Feeds</h1>
+
+<% @feeds.each do |i| %>
+  <div><%= i.content %></div>
+  <div><%= i.user.email %></div>
+  <div><%= i.created_at %></div>
+  <hr>
+<% end %>

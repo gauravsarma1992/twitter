@@ -1,3 +1,3 @@
 class Comment < ActiveRecord::Base
-  belongs_to :Feed
+  belongs_to :feed
 end
