@@ -15,7 +15,7 @@
       <div class="block">
         <div><strong><h4><%= i.content %></h4></strong></div>
         <div><h6><i><%= i.user.email %></i></h6></div>
-        <div><%= i.created_at %></div><br>
+        <div><%= i.created_at.strftime("%d %B %Y") %></div><br>
         <div><%= i.comments.count %> comments</div>
       </div>
     </div>
