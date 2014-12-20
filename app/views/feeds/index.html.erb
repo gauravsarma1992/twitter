@@ -1,19 +1,24 @@
 <h1>Feeds</h1>
-<%= form_for :feed do |f| %>
-  <p>
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </p>
-  <%= f.hidden_field :user_id, :value => current_user.id %>
-  <p>
-    <%= f.submit %>
-  </p>
-<% end %>
-<% @feeds.each do |i| %>
-  <div><%= i.content %></div>
-  <div><%= i.user.email %></div>
-  <div><%= i.created_at %></div>
-  <br>
-  <div><%= i.comments.count %> comments</div>
-  <hr>
-<% end %>
+<div class="col-md-12">
+  <%= form_for :feed do |f| %>
+    <div class="col-md-9">
+      <%= f.text_area :content, class: "form-control" %>
+    </div>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <div class="col-md-3">
+      <%= f.submit "Post", class: "btn btn-primary btn-block" %>
+    </div>
+  <% end %>
+  <% @feeds.each do |i| %>
+    <%= link_to feed_url(i.id) do %>
+    <div class="col-md-6">
+      <div class="block">
+        <div><strong><h4><%= i.content %></h4></strong></div>
+        <div><h6><i><%= i.user.email %></i></h6></div>
+        <div><%= i.created_at %></div><br>
+        <div><%= i.comments.count %> comments</div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>

@@ -18,7 +18,12 @@ class FeedsController < ApplicationController
   end
 
   def comment
-
+    c = Comment.new
+    c.comment = params[:comment][:comment] 
+    c.feed_id = params[:comment][:feed_id]
+    c.save
+    redirect_to action: "show", id: params[:comment][:feed_id]
+    # render plain: params[:comment].inspect 
   end
 
 end

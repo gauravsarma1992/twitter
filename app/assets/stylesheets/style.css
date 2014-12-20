@@ -1,0 +1,9 @@
+body{
+  font-size: 12px;background-color: #eee;
+}
+.block{
+  padding: 10px;border-radius: 8px 8px;border: 1px solid #ccc;margin-top: 20px;background: #fff;
+}
+.block:hover{
+  box-shadow: 0 0 14px 2px #333;cursor: pointer;
+}

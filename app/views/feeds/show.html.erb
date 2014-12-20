@@ -1,8 +1,23 @@
 <h1>Feed</h1>
-
-<div><%= @feed.content %></div>
-<div><%= @feed.user.email %></div>
-<% @feed.comments.each do |i| %>
-  <hr>
-  <div><%= i.comment %></div>
-<% end %>
+<div class="col-md-12">
+  <div><h3><%= @feed.content %></h3></div>
+  <div><i><%= @feed.user.email %></i></div>
+  <br>
+  <%= form_for :comment,url: {action: "comment", controller: "feeds"} do |f| %>
+    <p>
+      <%= f.text_area :comment, class: "form-control" %>
+    </p>
+    <%= f.hidden_field :feed_id, :value => @feed.id %>
+    <p>
+      <%= f.submit "Comment", class: "btn btn-success" %>
+    </p>
+  <% end %>
+  <% @feed.comments.reverse.each do |i| %>
+  <div class="col-md-6">
+    <div class="block">
+      <div><strong><%= i.comment %></strong>  </div>
+      <div><i><%= i.created_at.strftime("%d %B %Y") %></i></div>
+    </div>
+  </div>
+  <% end %>
+</div>
