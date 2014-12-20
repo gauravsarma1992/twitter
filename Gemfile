@@ -11,7 +11,7 @@ gem 'devise'
 
 gem 'faker'
 
-#gem 'sqlite3'
+gem 'sqlite3-ruby', '1.2.5', :group => :development
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
