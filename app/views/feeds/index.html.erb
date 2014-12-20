@@ -1,8 +1,19 @@
 <h1>Feeds</h1>
-
+<%= form_for :feed do |f| %>
+  <p>
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </p>
+  <%= f.hidden_field :user_id, :value => current_user.id %>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
 <% @feeds.each do |i| %>
   <div><%= i.content %></div>
   <div><%= i.user.email %></div>
   <div><%= i.created_at %></div>
+  <br>
+  <div><%= i.comments.count %> comments</div>
   <hr>
 <% end %>
