@@ -9,21 +9,13 @@ class FeedsController < ApplicationController
   end
 
   def create
-    f = Feed.new
-    f.content = params[:feed][:content] 
-    f.user_id = params[:feed][:user_id]
-    f.save
+    f = current_user.feeds.create(content: params[:feed][:content])
     redirect_to feeds_url
-    # render plain: params[:feed]["content"]
   end
 
   def comment
-    c = Comment.new
-    c.comment = params[:comment][:comment] 
-    c.feed_id = params[:comment][:feed_id]
-    c.save
+    c = Feed.find(params[:comment][:feed_id]).comments.create(comment: params[:comment][:comment])
     redirect_to action: "show", id: params[:comment][:feed_id]
-    # render plain: params[:comment].inspect 
   end
 
 end
