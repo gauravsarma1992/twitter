@@ -6,17 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 20.times do |i|
-  f = Feed.new
-  f.content = Faker::Lorem.sentence
-  f.user_id = 1
-  f.save
+  f = Feed.create(content: Faker::Lorem.sentence, user_id: 1)
 end
 
 20.times do |i|
   5.times do  
-    f = Comment.new
-    f.comment = Faker::Lorem.sentence
-    f.feed_id = i
-    f.save
+    f = Comment.create(comment: Faker::Lorem.sentence, feed_id: i)
   end
 end

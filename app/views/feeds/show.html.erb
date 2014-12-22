@@ -12,11 +12,11 @@
       <%= f.submit "Comment", class: "btn btn-success" %>
     </p>
   <% end %>
-  <% @feed.comments.reverse.each do |i| %>
+  <% @feed.comments.reverse.each do |comment| %>
   <div class="col-md-6">
     <div class="block">
-      <div><strong><%= i.comment %></strong>  </div>
-      <div><i><%= i.created_at.strftime("%d %B %Y") %></i></div>
+      <div><strong><%= comment.comment %></strong>  </div>
+      <div><i><%= comment.created_at.strftime("%d %B %Y") %></i></div>
     </div>
   </div>
   <% end %>
