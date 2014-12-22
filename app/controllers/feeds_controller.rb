@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
 
   def index
-    @feeds = Feed.all.order(id: :desc) #.to_json(:include => :user)
+    @feeds = Feed.all.order(id: :desc)
   end
 
   def show
@@ -9,13 +9,13 @@ class FeedsController < ApplicationController
   end
 
   def create
-    f = current_user.feeds.create(content: params[:feed][:content])
+    feed_create = current_user.feeds.create(content: params[:feed][:content])
     redirect_to feeds_url
   end
 
   def comment
-    c = Feed.find(params[:comment][:feed_id]).comments.create(comment: params[:comment][:comment])
-    redirect_to action: "show", id: params[:comment][:feed_id]
+    comment_create = Feed.find(params[:comment][:feed_id]).comments.create(comment: params[:comment][:comment])
+    redirect_to feed_url(params[:comment][:feed_id])
   end
 
 end
